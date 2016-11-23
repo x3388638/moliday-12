@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<style>
+			div, p {
+				border: 1px solid;
+				margin: 5px;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<button onClick="select('div')">選擇 id 為 myDiv 的元素</button> <button onClick="select('p')">選擇 class 為 myP 的元素</button>
+		<div id="myDiv">element "div", id="myDiv"</div>
+		<div id="myDiv">element "div", id="myDiv"</div>
+		<br /><br />
+		<p class="myP">element "p", class="myP"</p>
+		<p class="myP">element "p", class="myP"</p>
+		<p class="myP">element "p", class="myP"</p>
+		<script>
+			function select(t) {
+				reset();
+				switch(t) {
+					case 'div':
+						document.getElementById('myDiv').style.background = 'red';
+						break;
+					case 'p':
+						var myPs = document.getElementsByClassName('myP');
+						for(let i = 0; i < myPs.length; i++) {
+							myPs[i].style.background = 'red';
+						}
+						break;
+				}
+			}
+			function reset() {
+				var Divs = document.getElementsByTagName('div');
+				for(let i = 0; i < Divs.length; i++) {
+					Divs[i].style.background = 'white';
+				}
+				var Ps = document.getElementsByTagName('p');
+				for(let i = 0; i < Ps.length; i++) {
+					Ps[i].style.background = 'white';
+				}
+			}
+		</script>
+	</body>
+</html>
