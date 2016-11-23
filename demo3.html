@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo3</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<table class="table table-hover">
+						<thead>
+							<tr><th>#</th><th>name</th></tr>
+						</thead>
+						<tbody>
+							<tr data-type="toyota"><td>1</td><td>Camery</td></tr>
+							<tr data-type="honda"><td>2</td><td>Civic</td></tr>
+							<tr data-type="mazda"><td>3</td><td>Mazda 3</td></tr>
+							<tr data-type="toyota"><td>4</td><td>Altis</td></tr>
+							<tr data-type="vw"><td>5</td><td>Golf</td></tr>
+							<tr data-type="honda"><td>6</td><td>CRV</td></tr>
+						</tbody>
+					</table>
+					<div id="result"></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			$('table tbody tr').on('click', function() {
+				$(this).toggleClass('active');
+				render();
+			});
+			function render() {
+				var result = {};
+				$('table tbody tr').each(function(val, i) {
+					if($(this).hasClass('active')) {
+						var type = $(this).attr('data-type');
+						result[type] = result[type] ? result[type] + 1 : 1;
+					}
+				});
+				$('#result').html('');
+				for(var type in result) {
+					$('#result').append(`${type}: ${result[type]}<br/>`);
+				}
+			}
+		</script>
+	</body>
+</html>
