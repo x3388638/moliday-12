@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo2</title>
+		<style>
+			div.wrap {
+				border: 1px solid #000;
+				padding: 5px;
+				margin-bottom: 10px;
+				font-size: 16px;
+			}
+			div.wrap.hide {
+				display: none;
+			}
+			.highlight {
+				color: red;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="wrap hide">
+			<code>&lt;div <span class="highlight">title="I am a title"</span>&gt;This is a div.&lt;/div&gt;</code>
+			<div title="I am a title">This is a div.</div>
+		</div>
+		<div class="wrap hide">
+			<code>&lt;img <span class="highlight">src="https://moli.rocks/assets/img/Yuer1.gif"</span> height="200" /&gt; </code><br />
+			<img src="https://moli.rocks/assets/img/Yuer1.gif" height="200" />
+		</div>
+		<div class="wrap hide">
+			<code>&lt;a <span class="highlight">href="//moli.rocks"</span>&gt;Link to "moli.rocks"&lt;/a&gt;</code><br />
+			<a href="//moli.rocks">Link to "moli.rocks"</a>
+		</div>
+		<div class="wrap hide">
+			<code>&lt;a <span class="highlight">href="//moli.rocks"</span>&gt;<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&lt;img <span class="highlight">src="https://moli.rocks/assets/img/Yuer1.gif"</span> height="200" <span class="highlight">title="I am a title"</span> /&gt;<br />
+			&lt;/a&gt;</code><br />
+			<a href="//moli.rocks"><img src="https://moli.rocks/assets/img/Yuer1.gif" height="200" title="I am a title" /></a>
+		</div>
+		<script>
+			$(document).on('click', function() {
+				$('div.hide').first().removeClass('hide');
+			})
+		</script>
+	</body>
+</html>
