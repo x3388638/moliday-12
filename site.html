@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Personal site</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+		<style>
+			header {
+				background: #000;
+				color: #f3f3f3;
+				height: 50px;
+				line-height: 50px;
+				font-size: 16px;
+			}
+
+			span#brand {
+				margin-left: 50px;
+			}
+
+			nav {
+				background: #fff;
+				width: 230px;
+				padding: 50px 0px;
+				color: #737373;
+				font-size: 14px;
+				font-weight: bold;
+				min-height: 400px;
+				float: left;
+				box-shadow: 1px 0px 5px #000;
+			}
+
+			nav #logo {
+				background-image: url(https://blog.moli.rocks/content/images/2016/11/MOLi-logo.png);
+				background-size: 101px 101px;
+				display: inline-block;
+				height: 100px;
+				width: 100px;
+			}
+
+			nav ul#nav-list {
+				list-style-type: none;
+				padding: 0;
+			}
+
+			nav ul#nav-list li.nav-list-item {
+				padding: 5px 20px;
+				margin-bottom: 5px;
+				/*border: 1px solid #525252;*/
+				/*border-radius: 5px;*/
+				cursor: pointer;
+				transition: all .5s;
+				background: #fff;
+			}
+
+			nav ul#nav-list li.nav-list-item:hover {
+				color: #000;
+				border: 1px solid #737373;
+				box-shadow: 0px 1px 1px #000;
+			}
+
+			nav ul#nav-list li.nav-list-item.active {
+				color: #000;
+				border: 1px solid #737373;
+				box-shadow: 0px 1px 2px #000;
+			}
+
+			section {
+				margin-left: 230px;
+				min-height: 400px;
+			}
+
+			section #content-home {
+				background: rgba(0,0,0,0.4) center center url("https://moli.rocks/assets/img/background.JPG");
+				background-size: cover;
+			}
+
+			section #content-home #content-home-filter {
+				background: rgba(255, 255, 255, 0.3);
+				width: 100%;
+			}
+
+			section #content-home .content-home-title {
+				text-align: center;
+				font-size: 4.5em;
+				letter-spacing: -3px;
+				font-weight: 700;
+				color: #000;
+				padding-top: 150px;
+				padding-bottom: 100px;
+			}
+
+			section #content-home .content-home-desc {
+				text-align: center;
+			}
+
+			footer {
+				clear: both;
+				background: #000;
+				line-height: 30px;
+				height: 30px;
+				text-align: center;
+				color: #a0a0a0;
+				font-family: 'ubuntu-mono';
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<span id="brand">MOLi－創新自造者開放實驗室</span>
+		</header>
+		<nav>
+			<div style="text-align: center;">
+				<div id="logo"></div>
+			</div>
+			<ul id="nav-list">
+				<li class="nav-list-item active">Home</li>
+				<li class="nav-list-item">Intro</li>
+				<li class="nav-list-item">HappyHour</li>
+				<li class="nav-list-item">Event</li>
+				<li class="nav-list-item">Keyholders</li>
+				<li class="nav-list-item">About</li>
+			</ul>
+		</nav>
+		<section>
+			<div id="content-home" class="container-fluid">
+				<div id="content-home-filter">
+					<div class="row">
+						<div class="col-md-12 content-home-title">創新自造者開放實驗室</div>
+						<div class="col-md-12 content-home-desc">
+							<h2><i>Makers' Open Lab for Innovation</i></h2>
+							<h2><i>We Make, We Hack, We Share.</i></h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>&copy; Moli.rocks</footer>
+		<script>
+			$(window).on('resize', resize);
+			function resize() {
+				var winH = $(window).innerHeight();
+				var contentH = winH - 80;
+				$('nav, section, #content-home-filter').css('height', contentH);
+			};
+			resize();
+		</script>
+	</body>
+</html>
