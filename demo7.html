@@ -9,9 +9,9 @@
 				width: 100%;
 				text-align: center;
 				border-collapse: collapse;
-			}
-			tr, 
-			td {
+				font-family: 'ubuntu mono';
+			} 
+			td.content {
 				border: 1px solid #000;
 			}
 		</style>
@@ -32,13 +32,13 @@
 						<button id="btn-ok" type="button" class="btn btn-default">OK!</button>
 					</form>
 				</div>
-				<div id="result" class="col-md-6 col-md-offset-3"></div>
+				<div id="result" class="col-md-8 col-md-offset-2"></div>
 			</div>
 		</div>
 		<script>
 			$('#btn-ok').on('click', function() {
 				var rows = $('#row').val();
-				var cols = $('#col').val();
+				var cols = +$('#col').val() + 2;
 				if(rows <= 0 || cols <= 0) {
 					return;
 				}
@@ -48,7 +48,14 @@
 				for(let i = 0; i < rows; i++) {
 					let $tr = $('<tr>');
 					for(let j = 0; j < cols; j++) {
-						let $td = $('<td>Y</td>');
+						let $td;
+						if(j == 0) {
+							$td = $('<td>').text('<tr>');
+						} else if(j == cols - 1) {
+							$td = $('<td>').text('</tr>');
+						} else {
+							$td = $('<td class="content">').text('<td> </td>');
+						}
 						$tr.append($td);
 					}
 					$table.append($tr);
